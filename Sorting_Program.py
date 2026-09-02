@@ -123,7 +123,6 @@ def algorithm_menu_prompt():
                         List100.insert(insert_index, current_value)
                 end_algo_time
                 time_finish
-
                 print(List100)
                 print(f"Time: {time_finish: .10f} Seconds")
                 
@@ -162,16 +161,104 @@ def algorithm_menu_prompt():
                         List10000.insert(insert_index, current_value)
                 end_algo_time
                 time_finish
+                print(List10000)
                 print(f"Time: {time_finish: .10f} Seconds")
-                print(List10000)                       
 
-        if AlgorithmChoice =="v":
-                if SelectChoice =="1":
-                    print(List100)
-                elif SelectChoice =="2":
-                    print(List1000)
-                elif SelectChoice =="3":
-                    print(List10000)
+        if AlgorithmChoice == "3":
+            if SelectChoice =="1":
+                Start_algo_time
+                def partition(array, low, high):
+                    pivot = array[high]
+                    i = low - 1
+
+                    for j in range(low, high):
+                        if array[j] <= pivot:
+                            i += 1
+                            array[i], array[j] = array[j], array[i]
+
+                        array[i+1], array[high] = array[high], array[i+1]
+                        return i+1
+
+                def quicksort(array, low=0, high=None):
+                    if high is None:
+                        high = len(array) - 1
+
+                    if low < high:
+                        pivot_index = partition(array, low, high)
+                        quicksort(array, low, pivot_index-1)
+                        quicksort(array, pivot_index+1, high)
+
+                quicksort(List100)
+                end_algo_time
+                time_finish
+                print(List100)
+                print(f"Time: {time_finish: .10f} Seconds")
+
+
+        if AlgorithmChoice == "3":
+            if SelectChoice =="1":
+                Start_algo_time
+                def partition(array, low, high):
+                    pivot = array[high]
+                    i = low - 1
+
+                    for j in range(low, high):
+                        if array[j] <= pivot:
+                            i += 1
+                            array[i], array[j] = array[j], array[i]
+
+                        array[i+1], array[high] = array[high], array[i+1]
+                        return i+1
+
+                def quicksort(array, low=0, high=None):
+                    if high is None:
+                        high = len(array) - 1
+
+                    if low < high:
+                        pivot_index = partition(array, low, high)
+                        quicksort(array, low, pivot_index-1)
+                        quicksort(array, pivot_index+1, high)
+
+                quicksort(List1000)
+                end_algo_time
+                time_finish
+                print(List1000)
+                print(f"Time: {time_finish: .10f} Seconds")
+
+
+        if AlgorithmChoice == "3":
+            if SelectChoice =="1":
+                Start_algo_time
+                def partition(array, low, high):
+                    pivot = array[high]
+                    i = low - 1
+
+                    for j in range(low, high):
+                        if array[j] <= pivot:
+                            i += 1
+                            array[i], array[j] = array[j], array[i]
+
+                        array[i+1], array[high] = array[high], array[i+1]
+                        return i+1
+
+                def quicksort(array, low=0, high=None):
+                    if high is None:
+                        high = len(array) - 1
+
+                    if low < high:
+                        pivot_index = partition(array, low, high)
+                        quicksort(array, low, pivot_index-1)
+                        quicksort(array, pivot_index+1, high)
+
+                quicksort(List10000)
+                end_algo_time
+                time_finish
+                print(List10000)
+                print(f"Time: {time_finish: .10f} Seconds")
+
+                                       
+
+
     
     
     
