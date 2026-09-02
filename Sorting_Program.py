@@ -377,7 +377,35 @@ def algorithm_menu_prompt():
                 time_finish
                 print("Sorted array:", mysortedlist)
                 print(f"Time: {time_finish: .10f} Seconds")
-    
+
+
+        if AlgorithmChoice == "5":
+            if SelectChoice =="1":
+                Start_algo_time
+                List100.sort
+                end_algo_time
+                time_finish
+                print(List100)
+                print(f"Time: {time_finish: .10f} Seconds")
+
+        if AlgorithmChoice == "5":
+            if SelectChoice =="2":
+                Start_algo_time
+                List1000.sort
+                end_algo_time
+                time_finish
+                print(List1000)
+                print(f"Time: {time_finish: .10f} Seconds")
+
+        if AlgorithmChoice == "5":
+            if SelectChoice =="3":
+                Start_algo_time
+                List1000.sort
+                end_algo_time
+                time_finish
+                print(List1000)
+                print(f"Time: {time_finish: .10f} Seconds")
+
     
     
     
