@@ -59,10 +59,7 @@ def algorithm_menu_prompt():
                 2) Insertion
                 3) Quicksort
                 4) Merge
-                5) pythonsort
-                
-                View element list?
-                v) View List""")
+                5) pythonsort""")
                 
         AlgorithmChoice = input("Enter here: ")
         if AlgorithmChoice in AlgorithmOptions:
@@ -331,7 +328,7 @@ def algorithm_menu_prompt():
 
                     return result
 
-                mysortedlist = mergeSort(List100)
+                mysortedlist = mergeSort(List1000)
                 
                 end_algo_time
                 time_finish
@@ -371,7 +368,7 @@ def algorithm_menu_prompt():
 
                     return result
 
-                mysortedlist = mergeSort(List100)
+                mysortedlist = mergeSort(List10000)
                 
                 end_algo_time
                 time_finish
@@ -382,28 +379,28 @@ def algorithm_menu_prompt():
         if AlgorithmChoice == "5":
             if SelectChoice =="1":
                 Start_algo_time
-                List100.sort
+                Pythonsort = sorted(List100)
                 end_algo_time
                 time_finish
-                print(List100)
+                print(Pythonsort)
                 print(f"Time: {time_finish: .10f} Seconds")
 
         if AlgorithmChoice == "5":
             if SelectChoice =="2":
                 Start_algo_time
-                List1000.sort
+                Pythonsort = sorted(List1000)
                 end_algo_time
                 time_finish
-                print(List1000)
+                print(Pythonsort)
                 print(f"Time: {time_finish: .10f} Seconds")
 
         if AlgorithmChoice == "5":
             if SelectChoice =="3":
                 Start_algo_time
-                List10000.sort
+                Pythonsort = sorted(List10000)
                 end_algo_time
                 time_finish
-                print(List10000)
+                print(Pythonsort)
                 print(f"Time: {time_finish: .10f} Seconds")
 
     
