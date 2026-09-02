@@ -196,7 +196,7 @@ def algorithm_menu_prompt():
 
 
         if AlgorithmChoice == "3":
-            if SelectChoice =="1":
+            if SelectChoice =="2":
                 Start_algo_time
                 def partition(array, low, high):
                     pivot = array[high]
@@ -227,7 +227,7 @@ def algorithm_menu_prompt():
 
 
         if AlgorithmChoice == "3":
-            if SelectChoice =="1":
+            if SelectChoice =="3":
                 Start_algo_time
                 def partition(array, low, high):
                     pivot = array[high]
@@ -256,9 +256,127 @@ def algorithm_menu_prompt():
                 print(List10000)
                 print(f"Time: {time_finish: .10f} Seconds")
 
-                                       
 
 
+        if AlgorithmChoice == "4":
+            if SelectChoice =="1":
+                Start_algo_time
+                def mergeSort(arr):
+                    if len(arr) <= 1:
+                        return arr
+
+                    mid = len(arr) // 2
+                    leftHalf = arr[:mid]
+                    rightHalf = arr[mid:]
+
+                    sortedLeft = mergeSort(leftHalf)
+                    sortedRight = mergeSort(rightHalf)
+
+                    return merge(sortedLeft, sortedRight)
+
+                def merge(left, right):
+                    result = []
+                    i = j = 0
+
+                    while i < len(left) and j < len(right):
+                        if left[i] < right[j]:
+                            result.append(left[i])
+                            i += 1
+                        else:
+                            result.append(right[j])
+                            j += 1
+
+                    result.extend(left[i:])
+                    result.extend(right[j:])
+
+                    return result
+
+                mysortedlist = mergeSort(List100)
+
+                end_algo_time
+                time_finish
+                print("Sorted array:", mysortedlist)
+                print(f"Time: {time_finish: .10f} Seconds")
+
+        if AlgorithmChoice == "4":
+            if SelectChoice =="2":
+                Start_algo_time
+                def mergeSort(arr):
+                    if len(arr) <= 1:
+                        return arr
+
+                    mid = len(arr) // 2
+                    leftHalf = arr[:mid]
+                    rightHalf = arr[mid:]
+
+                    sortedLeft = mergeSort(leftHalf)
+                    sortedRight = mergeSort(rightHalf)
+
+                    return merge(sortedLeft, sortedRight)
+
+                def merge(left, right):
+                    result = []
+                    i = j = 0
+
+                    while i < len(left) and j < len(right):
+                        if left[i] < right[j]:
+                            result.append(left[i])
+                            i += 1
+                        else:
+                            result.append(right[j])
+                            j += 1
+
+                    result.extend(left[i:])
+                    result.extend(right[j:])
+
+                    return result
+
+                mysortedlist = mergeSort(List100)
+                
+                end_algo_time
+                time_finish
+                print("Sorted array:", mysortedlist)
+                print(f"Time: {time_finish: .10f} Seconds")
+
+        if AlgorithmChoice == "4":
+            if SelectChoice =="3":
+                Start_algo_time
+                def mergeSort(arr):
+                    if len(arr) <= 1:
+                        return arr
+
+                    mid = len(arr) // 2
+                    leftHalf = arr[:mid]
+                    rightHalf = arr[mid:]
+
+                    sortedLeft = mergeSort(leftHalf)
+                    sortedRight = mergeSort(rightHalf)
+
+                    return merge(sortedLeft, sortedRight)
+
+                def merge(left, right):
+                    result = []
+                    i = j = 0
+
+                    while i < len(left) and j < len(right):
+                        if left[i] < right[j]:
+                            result.append(left[i])
+                            i += 1
+                        else:
+                            result.append(right[j])
+                            j += 1
+
+                    result.extend(left[i:])
+                    result.extend(right[j:])
+
+                    return result
+
+                mysortedlist = mergeSort(List100)
+                
+                end_algo_time
+                time_finish
+                print("Sorted array:", mysortedlist)
+                print(f"Time: {time_finish: .10f} Seconds")
     
     
     
