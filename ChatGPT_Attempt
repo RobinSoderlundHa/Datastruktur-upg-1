@@ -1,0 +1,175 @@
+
+import random
+import time
+
+
+# --------------------------------------------------
+# 1. BUBBLE SORT
+# --------------------------------------------------
+
+def bubble_sort(arr):
+    arr = arr.copy()
+
+    n = len(arr)
+
+    for i in range(n):
+        swapped = False
+
+        for j in range(0, n - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                swapped = True
+
+        # If no elements were swapped, the list is already sorted
+        if not swapped:
+            break
+
+    return arr
+
+
+# --------------------------------------------------
+# 2. INSERTION SORT
+# --------------------------------------------------
+
+def insertion_sort(arr):
+    arr = arr.copy()
+
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+
+        while j >= 0 and arr[j] > key:
+            arr[j + 1] = arr[j]
+            j -= 1
+
+        arr[j + 1] = key
+
+    return arr
+
+
+# --------------------------------------------------
+# 3. QUICKSORT
+# --------------------------------------------------
+
+def quicksort(arr):
+    arr = arr.copy()
+
+    def quicksort_recursive(low, high):
+        if low < high:
+            pivot_index = partition(low, high)
+
+            quicksort_recursive(low, pivot_index - 1)
+            quicksort_recursive(pivot_index + 1, high)
+
+    def partition(low, high):
+        # Use the last element as the pivot
+        pivot = arr[high]
+
+        i = low - 1
+
+        for j in range(low, high):
+            if arr[j] <= pivot:
+                i += 1
+                arr[i], arr[j] = arr[j], arr[i]
+
+        arr[i + 1], arr[high] = arr[high], arr[i + 1]
+
+        return i + 1
+
+    quicksort_recursive(0, len(arr) - 1)
+
+    return arr
+
+
+# --------------------------------------------------
+# 4. MERGESORT
+# --------------------------------------------------
+
+def mergesort(arr):
+
+    if len(arr) <= 1:
+        return arr.copy()
+
+    middle = len(arr) // 2
+
+    left = mergesort(arr[:middle])
+    right = mergesort(arr[middle:])
+
+    return merge(left, right)
+
+
+def merge(left, right):
+    result = []
+
+    i = 0
+    j = 0
+
+    while i < len(left) and j < len(right):
+
+        if left[i] <= right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+
+    # Add remaining elements
+    result.extend(left[i:])
+    result.extend(right[j:])
+
+    return result
+
+
+# --------------------------------------------------
+# 5. PYTHON'S BUILT-IN SORTING FUNCTION
+# --------------------------------------------------
+
+def python_sort(arr):
+    return sorted(arr)
+
+
+# --------------------------------------------------
+# TESTING THE SORTING ALGORITHMS
+# --------------------------------------------------
+
+sorting_algorithms = {
+    "Bubble Sort": bubble_sort,
+    "Insertion Sort": insertion_sort,
+    "Quick Sort": quicksort,
+    "Merge Sort": mergesort,
+    "Python sorted()": python_sort
+}
+
+
+# Number of elements to test
+sizes = [100, 1000, 10000]
+
+
+for size in sizes:
+
+    # Generate a random list
+    numbers = [random.randint(1, 100000) for _ in range(size)]
+
+    print("\n" + "=" * 60)
+    print(f"TESTING WITH {size} ELEMENTS")
+    print("=" * 60)
+
+    for name, algorithm in sorting_algorithms.items():
+
+        # Start timer
+        start_time = time.perf_counter()
+
+        # Sort the list
+        sorted_numbers = algorithm(numbers)
+
+        # Stop timer
+        end_time = time.perf_counter()
+
+        elapsed_time = end_time - start_time
+
+        # Check that the result is actually sorted
+        correct = sorted_numbers == sorted(numbers)
+
+        print(f"{name:<20} {elapsed_time:.6f} seconds "
+              f"(Correct: {correct})")
+
