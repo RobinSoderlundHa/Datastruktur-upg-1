@@ -400,10 +400,10 @@ def algorithm_menu_prompt():
         if AlgorithmChoice == "5":
             if SelectChoice =="3":
                 Start_algo_time
-                List1000.sort
+                List10000.sort
                 end_algo_time
                 time_finish
-                print(List1000)
+                print(List10000)
                 print(f"Time: {time_finish: .10f} Seconds")
 
     
